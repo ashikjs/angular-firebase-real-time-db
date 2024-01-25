@@ -11,16 +11,7 @@ import {AngularFireDatabase} from "@angular/fire/compat/database";
 export class TaskComponent implements OnInit, OnDestroy {
 
   subscription: Subscription | undefined;
-  tasks: Task[] = [
-    {
-      title: 'Buy milk',
-      description: 'Go to the store and buy milk'
-    },
-    {
-      title: 'Create a Kanban app',
-      description: 'Using Firebase and Angular create a Kanban app!'
-    }
-  ];
+  tasks: Task[] = [];
   addTaskTitle: string = '';
   addTaskDescription: string = '';
 
@@ -32,13 +23,7 @@ export class TaskComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.subscription = this.db.list('tasks').valueChanges().subscribe((data: any[]) => {
       this.tasks = data;
-      console.log('this.tasks SUB:: ', this.tasks);
     });
-    // const tasksRef = this.db.collection('tasks');
-    // this.subscription = tasksRef.valueChanges().subscribe((messages) => {
-    //   console.log(messages)
-    //   // this.tasks = messages as Task[];
-    // });
   }
 
   addtask() {

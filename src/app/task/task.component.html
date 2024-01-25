@@ -1,6 +1,6 @@
 <div class="container">
   <div class="card">
-    <h2>task list</h2>
+    <h2>Task list</h2>
     <div class="flex">
       <div class="col">
         <h4>Add task </h4>
@@ -8,8 +8,10 @@
         <textarea type="text" [(ngModel)]="addTaskDescription" rows="5"></textarea>
         <button (click)="addtask()">Add task</button>
       </div>
-      <div class="col">
-        <ul>
+      <div class="col" style="padding-left: 60px;">
+        <h4>Task List</h4>
+        <p *ngIf="!tasks?.length">Loading...</p>
+        <ul style="padding-left: 15px;">
           <li *ngFor="let task of tasks">
             <h4>{{ task.title }}</h4>
             <p>{{ task.description }}</p>
