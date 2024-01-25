@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="card">
+    <h2>task list</h2>
+    <div class="flex">
+      <div class="col">
+        <h4>Add task </h4>
+        <input type="text" [(ngModel)]="addTaskTitle">
+        <textarea type="text" [(ngModel)]="addTaskDescription" rows="5"></textarea>
+        <button (click)="addtask()">Add task</button>
+      </div>
+      <div class="col">
+        <ul>
+          <li *ngFor="let task of tasks">
+            <h4>{{ task.title }}</h4>
+            <p>{{ task.description }}</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+</div>
